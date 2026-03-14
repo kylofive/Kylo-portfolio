@@ -1,12 +1,17 @@
+"use client";
+
 import { ArrowUpRight, Github } from "lucide-react";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 import { AnimatedBorderButton } from "@/components/AnimatedBorderButton";
 const projects = [
   {
     title: "Fintech Dashboard",
     description:
       "A comprehensive financial analytics platform with real-time data visualization, portfolio management, and AI-powered insights.",
-    image: "/projects/project1.png",
-    tags: ["React", "Typescript", "NodeJS"],
+    imageDark: "/portfolio-drak.png",
+    imageLight: "/portfolio-light.png",
+    tags: ["Next.js", "React", "TailwindCSS"],
     link: "#",
     github: "#",
   },
@@ -40,6 +45,26 @@ const projects = [
 ];
 
 export const Projects = () => {
+  const { theme, systemTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const getCurrentImage = (project) => {
+    if (!mounted) return project.imageDark || project.image; // default before hydration
+
+    // Check if the project has theme-specific images
+    if (project.imageDark && project.imageLight) {
+      const currentTheme = theme === "system" ? systemTheme : theme;
+      return currentTheme === "dark" ? project.imageDark : project.imageLight;
+    }
+
+    // Fallback to original image
+    return project.image;
+  };
+
   return (
     <section id="projects" className="py-32 relative overflow-hidden">
       {/* Bg glows */}
@@ -53,7 +78,7 @@ export const Projects = () => {
           </span>
           <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 animate-fade-in animation-delay-100 text-secondary-foreground">
             Projects that
-            <span className="font-serif italic font-normal text-white">
+            <span className="font-serif italic font-normal text-primary dark:text-white">
               {" "}
               make an impact.
             </span>
@@ -75,7 +100,7 @@ export const Projects = () => {
               {/* Image */}
               <div className="relative overflow-hidden aspect-video">
                 <img
-                  src={project.image}
+                  src={getCurrentImage(project)}
                   alt={project.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />

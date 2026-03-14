@@ -3,6 +3,7 @@
 import { Button } from "@/components/Button";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
+import { ModeToggle } from "@/components/ModeToggle";
 
 const navLinks = [
   { href: "#about", label: "About" },
@@ -53,8 +54,9 @@ export const Navbar = () => {
           </div>
         </div>
 
-        {/* CTA Button */}
-        <div className="hidden md:block">
+        {/* CTA Button & Theme Toggle */}
+        <div className="hidden md:flex items-center gap-4">
+          <ModeToggle />
           <Button size="sm">Contact Me</Button>
         </div>
 

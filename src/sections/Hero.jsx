@@ -1,4 +1,8 @@
+"use client";
+
 import { Button } from "@/components/Button";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 import {
   ArrowRight,
   ChevronDown,
@@ -31,6 +35,20 @@ const skills = [
 ];
 
 export const Hero = () => {
+  const { theme, systemTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const currentTheme = theme === "system" ? systemTheme : theme;
+  const profileImageSrc = !mounted
+    ? "/portfolio-drak.png"
+    : currentTheme === "light"
+      ? "/portfolio-light.png"
+      : "/portfolio-drak.png";
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Bg */}
@@ -38,9 +56,9 @@ export const Hero = () => {
         <img
           src="/hero-bg.jpg"
           alt="Hero image"
-          className="w-full h-full object-cover opacity-40"
+          className="w-full h-full object-cover opacity-0 dark:opacity-40"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/80 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/0 via-background/20 to-background dark:from-background/20 dark:via-background/80" />
       </div>
 
       {/* Green Dots */}
@@ -68,7 +86,7 @@ export const Hero = () => {
             <div className="animate-fade-in">
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm text-primary">
                 <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-                Software Engineer • React Specialist
+                Software Engineer
               </span>
             </div>
 
@@ -79,7 +97,7 @@ export const Hero = () => {
                 <br />
                 experiences with
                 <br />
-                <span className="font-serif italic font-normal text-white">
+                <span className="font-serif italic font-normal text-primary dark:text-white">
                   precision.
                 </span>
               </h1>
@@ -105,13 +123,14 @@ export const Hero = () => {
             <div className="flex items-center gap-4 animate-fade-in animation-delay-400">
               <span className="text-sm text-muted-foreground">Follow me: </span>
               {[
-                { icon: Github, href: "#" },
-                { icon: Linkedin, href: "#" },
-                { icon: Twitter, href: "#" },
+                { icon: Github, href: "https://github.com/kylofive" },
+                { icon: Linkedin, href: "https://www.linkedin.com/in/jian-zhang-064875186" },
               ].map((social, idx) => (
                 <a
                   key={idx}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="p-2 rounded-full glass hover:bg-primary/10 hover:text-primary transition-all duration-300"
                 >
                   {<social.icon className="w-5 h-5" />}
@@ -120,37 +139,31 @@ export const Hero = () => {
             </div>
           </div>
           {/* Right Column - Profile Image */}
-          <div className="relatice animate-fade-in animation-delay-300">
-            {/* Profile Image */}
+          <div className="relative animate-fade-in animation-delay-300">
+            {/* Profile Image Frame */}
             <div className="relative max-w-md mx-auto">
-              <div
-                className="absolute inset-0 
-              rounded-3xl bg-gradient-to-br 
-              from-primary/30 via-transparent 
-              to-primary/10 blur-2xl animate-pulse"
-              />
-              <div className="relative glass rounded-3xl p-2 glow-border">
+              {/* Floating Teal Dots */}
+              <div className="absolute -left-6 top-1/4 w-2 h-2 rounded-full bg-primary/60 blur-[1px]" />
+              <div className="absolute top-1/3 right-8 w-1.5 h-1.5 rounded-full bg-primary/40 blur-[1px]" />
+              <div className="absolute bottom-1/4 -right-2 w-2.5 h-2.5 rounded-full bg-primary/50 blur-[1px]" />
+              <div className="absolute -bottom-4 left-1/4 w-1.5 h-1.5 rounded-full bg-primary/60 blur-[1px]" />
+
+              {/* Background gradient blur */}
+              <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-br from-primary/20 via-primary/5 to-transparent blur-2xl animate-pulse" />
+
+              <div className="relative rounded-[2rem] p-3 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none border border-white/60 dark:border-white/10 bg-white/40 dark:bg-black/20 backdrop-blur-xl">
                 <img
-                  src="/profile-photo.jpg"
+                  src={profileImageSrc}
                   alt="Kylo"
-                  className="w-full aspect-[4/5] object-cover rounded-2xl"
+                  className="w-full aspect-[4/5] object-cover rounded-[1.5rem]"
                 />
 
-                {/* Floating Badge */}
-                <div className="absolute -bottom-4 -right-4 glass rounded-xl px-4 py-3 animate-float">
-                  <div className="flex items-center gap-3">
-                    <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
-                    <span className="text-sm font-medium">
-                      Available for work
-                    </span>
-                  </div>
-                </div>
-                {/* Stats Badge */}
-                <div className="absolute -top-4 -left-4 glass rounded-xl px-4 py-3 animate-float animation-delay-500">
-                  <div className="text-2xl font-bold text-primary">5+</div>
-                  <div className="text-xs text-muted-foreground">
-                    Years Exp.
-                  </div>
+                {/* Bottom Right Floating Badge */}
+                <div className="absolute -bottom-5 -right-5 bg-white dark:bg-surface shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-white/80 dark:border-white/10 rounded-full px-5 py-2.5 animate-float flex items-center gap-2.5 backdrop-blur-md">
+                  <div className="w-2.5 h-2.5 bg-[#4ADE80] rounded-full shadow-[0_0_10px_rgba(74,222,128,0.5)]" />
+                  <span className="text-sm font-medium text-foreground whitespace-nowrap">
+                    Open to work
+                  </span>
                 </div>
               </div>
             </div>
@@ -196,6 +209,6 @@ export const Hero = () => {
           <ChevronDown className="w-6 h-6 animate-bounce" />
         </a>
       </div>
-    </section>
+    </section >
   );
 };
