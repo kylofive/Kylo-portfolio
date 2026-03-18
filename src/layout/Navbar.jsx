@@ -1,7 +1,7 @@
 "use client";
 
-import { Button } from "@/components/Button";
-import { Menu, X } from "lucide-react";
+
+import { Menu, X, Sparkles } from "lucide-react";
 import { useEffect, useState } from "react";
 import { ModeToggle } from "@/components/ModeToggle";
 
@@ -32,9 +32,9 @@ export const Navbar = () => {
       <nav className="container mx-auto px-6 flex items-center justify-between">
         <a
           href="#"
-          className="text-xl font-bold tracking-tight hover:text-primary"
+          className="text-xl font-bold tracking-tight hover:text-primary flex items-center gap-2"
         >
-          Kylo<span className="text-primary">.</span>
+          Kylo About <Sparkles className="w-5 h-5 text-primary" />
         </a>
 
         {/* Desktop Nav */}
@@ -55,7 +55,6 @@ export const Navbar = () => {
         {/* CTA Button & Theme Toggle */}
         <div className="hidden md:flex items-center gap-4">
           <ModeToggle />
-          <Button size="sm">Contact Me</Button>
         </div>
 
         {/* Mobile Menu Button */}
@@ -82,9 +81,7 @@ export const Navbar = () => {
               </a>
             ))}
 
-            <Button onClick={() => setIsMobileMenuOpen(false)}>
-              Contact Me
-            </Button>
+
           </div>
         </div>
       )}

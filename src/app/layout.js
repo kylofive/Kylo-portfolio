@@ -13,7 +13,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata = {
-  title: "Kylo's Portfolio",
+  title: "Kylo About",
   description: "Software Engineer & React Specialist",
 };
 

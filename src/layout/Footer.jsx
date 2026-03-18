@@ -1,4 +1,4 @@
-import { Linkedin, Heart } from "lucide-react";
+import { Linkedin, Heart, Sparkles } from "lucide-react";
 
 const socialLinks = [
   { icon: Linkedin, href: "#", label: "LinkedIn" },
@@ -20,8 +20,8 @@ export const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Logo & Copyright */}
           <div className="text-center md:text-left">
-            <a href="#" className="text-xl font-bold tracking-tight">
-              Kylo<span className="text-primary">.</span>
+            <a href="#" className="text-xl font-bold tracking-tight flex items-center gap-2 justify-center md:justify-start">
+              Kylo About <Sparkles className="w-5 h-5 text-primary" />
             </a>
             <p className="text-sm text-muted-foreground mt-2">
               © {currentYear} Kylo.
