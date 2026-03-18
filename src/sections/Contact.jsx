@@ -19,12 +19,7 @@ const contactInfo = [
     value: "kylo@example.com",
     href: "mailto:kylo@example.com",
   },
-  {
-    icon: Phone,
-    label: "Phone",
-    value: "+1 (555) 123-4567",
-    href: "tel:+15551234567",
-  },
+
   {
     icon: MapPin,
     label: "Location",
@@ -107,7 +102,7 @@ export const Contact = () => {
               something great.
             </span>
           </h2>
-          <p className="text-muted-foreground animate-fade-in animation-delay-200">
+          <p className="text-slate-900 dark:text-slate-400 animate-fade-in animation-delay-200">
             Have a project in mind? I'd love to hear about it. Send me a message
             and let's discuss how we can work together.
           </p>
@@ -217,7 +212,7 @@ export const Contact = () => {
                 <span className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
                 <span className="font-medium">Currently Available</span>
               </div>
-              <p className="text-muted-foreground text-sm">
+              <p className="text-slate-700 dark:text-slate-400 text-sm">
                 I'm currently open to new opportunities and exciting projects.
                 Whether you need a full-time engineer or a freelance consultant,
                 let's talk!

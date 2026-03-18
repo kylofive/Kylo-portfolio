@@ -67,7 +67,7 @@ export const Experience = () => {
           </h2>
 
           <p
-            className="text-muted-foreground
+            className="text-slate-900 dark:text-slate-400
            animate-fade-in animation-delay-200"
           >
             A timeline of my professional growth, from curious beginner to
@@ -108,8 +108,8 @@ export const Experience = () => {
                       {exp.period}
                     </span>
                     <h3 className="text-xl font-semibold mt-2">{exp.role}</h3>
-                    <p className="text-muted-foreground">{exp.company}</p>
-                    <p className="text-sm text-muted-foreground mt-4">
+                    <p className="text-slate-700 dark:text-slate-400">{exp.company}</p>
+                    <p className="text-sm text-slate-700 dark:text-slate-400 mt-4">
                       {exp.description}
                     </p>
                     <div

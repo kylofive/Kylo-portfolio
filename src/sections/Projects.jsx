@@ -83,7 +83,7 @@ export const Projects = () => {
               make an impact.
             </span>
           </h2>
-          <p className="text-muted-foreground animate-fade-in animation-delay-200">
+          <p className="text-slate-900 dark:text-slate-400 animate-fade-in animation-delay-200">
             A selection of my recent work, from complex web applications to
             innovative tools that solve real-world problems.
           </p>
@@ -139,7 +139,7 @@ export const Projects = () => {
                    group-hover:-translate-y-1 transition-all"
                   />
                 </div>
-                <p className="text-muted-foreground text-sm">
+                <p className="text-slate-700 dark:text-slate-400 text-sm">
                   {project.description}
                 </p>
                 <div className="flex flex-wrap gap-2">

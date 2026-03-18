@@ -7,9 +7,7 @@ import { ModeToggle } from "@/components/ModeToggle";
 
 const navLinks = [
   { href: "#about", label: "About" },
-  { href: "#projects", label: "Projects" },
-  { href: "#experience", label: "Experience" },
-  { href: "#testimonials", label: "Testimonials" },
+  { href: "#projects", label: "Projects" }
 ];
 
 export const Navbar = () => {

@@ -1,28 +1,25 @@
-import { Code2, Lightbulb, Rocket, Users } from "lucide-react";
+import { Code2, Layers, Server, Brain } from "lucide-react";
 
 const highlights = [
   {
     icon: Code2,
-    title: "Clean Code",
-    description:
-      "Writing maintainable, scalable code that stands the test of time.",
+    title: "Core Languages",
+    description: "Python, Java, JavaScript, TypeScript, SQL, Swift, Kotlin, PHP, HTML/CSS.",
   },
   {
-    icon: Rocket,
-    title: "Performance",
-    description:
-      "Optimizing for speed and delivering lightning-fast user experiences.",
+    icon: Layers,
+    title: "Frameworks & UI",
+    description: "React, Next.js, SwiftUI, Django, FastAPI, Spring Boot, Node.js, Redux, GraphQL, Jest.",
   },
   {
-    icon: Users,
-    title: "Collaboration",
-    description: "Working closely with teams to bring ideas to life.",
+    icon: Server,
+    title: "Cloud & DevOps",
+    description: "AWS, Docker, Kubernetes, Terraform, Jenkins, Ansible, Git, CI/CD.",
   },
   {
-    icon: Lightbulb,
-    title: "Innovation",
-    description:
-      "Staying ahead with the latest technologies and best practices.",
+    icon: Brain,
+    title: "AI/ML & Data",
+    description: "RAG, LLM Integration, Vector Search, PostgreSQL, MySQL, MongoDB, Snowflake.",
   },
 ];
 
@@ -40,14 +37,14 @@ export const About = () => {
             </div>
 
             <h2 className="text-4xl md:text-5xl font-bold leading-tight animate-fade-in animation-delay-100 text-secondary-foreground">
-              Building the future,
+              Building,
               <span className="font-serif italic font-normal text-primary dark:text-white">
                 {" "}
-                one component at a time.
+                some interesting things.
               </span>
             </h2>
 
-            <div className="space-y-4 text-muted-foreground animate-fade-in animation-delay-200">
+            <div className="space-y-4 text-slate-900 dark:text-slate-400 animate-fade-in animation-delay-200">
               <p>
                 I'm a passionate software engineer with over 5 years of
                 experience crafting digital products that make a difference. My

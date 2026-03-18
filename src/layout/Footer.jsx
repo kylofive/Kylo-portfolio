@@ -1,9 +1,7 @@
-import { Github, Linkedin, Twitter, Heart } from "lucide-react";
+import { Linkedin, Heart } from "lucide-react";
 
 const socialLinks = [
-  { icon: Github, href: "#", label: "GitHub" },
   { icon: Linkedin, href: "#", label: "LinkedIn" },
-  { icon: Twitter, href: "#", label: "Twitter" },
 ];
 
 const footerLinks = [
@@ -26,7 +24,7 @@ export const Footer = () => {
               Kylo<span className="text-primary">.</span>
             </a>
             <p className="text-sm text-muted-foreground mt-2">
-              © {currentYear} Kylo. All rights reserved.
+              © {currentYear} Kylo.
             </p>
           </div>
 
